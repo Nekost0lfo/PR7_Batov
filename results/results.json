@@ -1,0 +1,549 @@
+{
+  "env": {
+    "python": "3.11.6",
+    "numpy": "2.4.6",
+    "numba": "0.68.1",
+    "cpu_count": 8,
+    "numba_threads": 8,
+    "repeats": 3
+  },
+  "cold_warm": {
+    "cold_serial_s": 0.537216100000478,
+    "cold_parallel_s": 1.5226411000003282,
+    "cold_both_s": 2.059857200000806,
+    "warm_serial_median_s": 0.0011543000000528991,
+    "warm_parallel_median_s": 0.00022420000004785834,
+    "cold_over_warm_serial": 465.40422764953524,
+    "cold_over_warm_parallel": 6791.441122548176
+  },
+  "numba_threads": {
+    "serial_s": 0.019086699999206758,
+    "rows": [
+      [
+        1,
+        "0.019989",
+        "0.019087",
+        "0.955",
+        "0.955"
+      ],
+      [
+        2,
+        "0.011469",
+        "0.019087",
+        "1.664",
+        "0.832"
+      ],
+      [
+        4,
+        "0.008804",
+        "0.019087",
+        "2.168",
+        "0.542"
+      ],
+      [
+        8,
+        "0.005462",
+        "0.019087",
+        "3.494",
+        "0.437"
+      ]
+    ]
+  },
+  "process_threads": [
+    [
+      1,
+      "0.325008",
+      "0.795779",
+      "1.000"
+    ],
+    [
+      2,
+      "0.503231",
+      "0.765334",
+      "0.646"
+    ],
+    [
+      4,
+      "0.885517",
+      "0.761748",
+      "0.367"
+    ],
+    [
+      8,
+      "1.690811",
+      "0.927088",
+      "0.192"
+    ]
+  ],
+  "negative_case": {
+    "tiny_kernel_s": {
+      "A Python": 0.000195,
+      "B NumPy": 4.7e-05,
+      "B NumPy lowmem": 3.6e-05,
+      "C Numba serial": 4e-06,
+      "C Numba prange": 1.9e-05,
+      "D Processes": 0.0035
+    },
+    "tiny_e2e_s": {
+      "A Python": 0.000884,
+      "B NumPy": 0.000131,
+      "C Numba serial": 6.5e-05,
+      "C Numba prange": 0.000157,
+      "D Processes": 0.872774
+    },
+    "big_kernel_s": {
+      "A Python": 1.264937,
+      "B NumPy": 0.082362,
+      "B NumPy lowmem": 0.077798,
+      "C Numba serial": 0.018926,
+      "C Numba prange": 0.005461,
+      "D Processes": 1.706969
+    },
+    "numpy_tiny_speedup": 4.1489361702127665,
+    "numba_serial_tiny_speedup": 48.75,
+    "process_tiny_kernel_speedup": 0.05571428571428571,
+    "process_tiny_e2e_speedup": 0.0010128624363237217
+  },
+  "correctness_spot_check": [
+    {
+      "size": 1,
+      "mode": "kernel",
+      "impl": "A Python",
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "size": 1,
+      "mode": "kernel",
+      "impl": "B NumPy",
+      "max_abs_diff": 6.661338147750939e-16,
+      "allclose": true
+    },
+    {
+      "size": 1,
+      "mode": "kernel",
+      "impl": "B NumPy lowmem",
+      "max_abs_diff": 6.661338147750939e-16,
+      "allclose": true
+    },
+    {
+      "size": 1,
+      "mode": "kernel",
+      "impl": "C Numba serial",
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "size": 1,
+      "mode": "kernel",
+      "impl": "C Numba prange",
+      "max_abs_diff": 5.551115123125783e-16,
+      "allclose": true
+    },
+    {
+      "size": 1,
+      "mode": "kernel",
+      "impl": "D Processes",
+      "max_abs_diff": 5.551115123125783e-16,
+      "allclose": true
+    },
+    {
+      "size": 1,
+      "mode": "e2e",
+      "impl": "A Python",
+      "max_abs_diff_e2e_different_rng": 0.0
+    },
+    {
+      "size": 1,
+      "mode": "e2e",
+      "impl": "B NumPy",
+      "max_abs_diff_e2e_different_rng": 8.0
+    },
+    {
+      "size": 1,
+      "mode": "e2e",
+      "impl": "C Numba serial",
+      "max_abs_diff_e2e_different_rng": 8.0
+    },
+    {
+      "size": 1,
+      "mode": "e2e",
+      "impl": "C Numba prange",
+      "max_abs_diff_e2e_different_rng": 8.0
+    },
+    {
+      "size": 1,
+      "mode": "e2e",
+      "impl": "D Processes",
+      "max_abs_diff_e2e_different_rng": 16.0
+    },
+    {
+      "size": 400,
+      "mode": "kernel",
+      "impl": "A Python",
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "size": 400,
+      "mode": "kernel",
+      "impl": "B NumPy",
+      "max_abs_diff": 1.2989609388114332e-14,
+      "allclose": true
+    },
+    {
+      "size": 400,
+      "mode": "kernel",
+      "impl": "B NumPy lowmem",
+      "max_abs_diff": 1.2989609388114332e-14,
+      "allclose": true
+    },
+    {
+      "size": 400,
+      "mode": "kernel",
+      "impl": "C Numba serial",
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "size": 400,
+      "mode": "kernel",
+      "impl": "C Numba prange",
+      "max_abs_diff": 1.4988010832439613e-14,
+      "allclose": true
+    },
+    {
+      "size": 400,
+      "mode": "kernel",
+      "impl": "D Processes",
+      "max_abs_diff": 1.2989609388114332e-14,
+      "allclose": true
+    },
+    {
+      "size": 400,
+      "mode": "e2e",
+      "impl": "A Python",
+      "max_abs_diff_e2e_different_rng": 0.0
+    },
+    {
+      "size": 400,
+      "mode": "e2e",
+      "impl": "B NumPy",
+      "max_abs_diff_e2e_different_rng": 1.09
+    },
+    {
+      "size": 400,
+      "mode": "e2e",
+      "impl": "C Numba serial",
+      "max_abs_diff_e2e_different_rng": 1.09
+    },
+    {
+      "size": 400,
+      "mode": "e2e",
+      "impl": "C Numba prange",
+      "max_abs_diff_e2e_different_rng": 1.09
+    },
+    {
+      "size": 400,
+      "mode": "e2e",
+      "impl": "D Processes",
+      "max_abs_diff_e2e_different_rng": 0.582415207368749
+    },
+    {
+      "size": 800,
+      "mode": "kernel",
+      "impl": "A Python",
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "size": 800,
+      "mode": "kernel",
+      "impl": "B NumPy",
+      "max_abs_diff": 3.985700658404312e-14,
+      "allclose": true
+    },
+    {
+      "size": 800,
+      "mode": "kernel",
+      "impl": "B NumPy lowmem",
+      "max_abs_diff": 3.985700658404312e-14,
+      "allclose": true
+    },
+    {
+      "size": 800,
+      "mode": "kernel",
+      "impl": "C Numba serial",
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "size": 800,
+      "mode": "kernel",
+      "impl": "C Numba prange",
+      "max_abs_diff": 4.18554080283684e-14,
+      "allclose": true
+    },
+    {
+      "size": 800,
+      "mode": "kernel",
+      "impl": "D Processes",
+      "max_abs_diff": 3.9968028886505635e-14,
+      "allclose": true
+    },
+    {
+      "size": 800,
+      "mode": "e2e",
+      "impl": "A Python",
+      "max_abs_diff_e2e_different_rng": 0.0
+    },
+    {
+      "size": 800,
+      "mode": "e2e",
+      "impl": "B NumPy",
+      "max_abs_diff_e2e_different_rng": 0.31499999999999995
+    },
+    {
+      "size": 800,
+      "mode": "e2e",
+      "impl": "C Numba serial",
+      "max_abs_diff_e2e_different_rng": 0.31499999999999995
+    },
+    {
+      "size": 800,
+      "mode": "e2e",
+      "impl": "C Numba prange",
+      "max_abs_diff_e2e_different_rng": 0.31499999999999995
+    },
+    {
+      "size": 800,
+      "mode": "e2e",
+      "impl": "D Processes",
+      "max_abs_diff_e2e_different_rng": 1.0391127765017103
+    },
+    {
+      "size": 1600,
+      "mode": "kernel",
+      "impl": "A Python",
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "size": 1600,
+      "mode": "kernel",
+      "impl": "B NumPy",
+      "max_abs_diff": 3.019806626980426e-14,
+      "allclose": true
+    },
+    {
+      "size": 1600,
+      "mode": "kernel",
+      "impl": "B NumPy lowmem",
+      "max_abs_diff": 3.019806626980426e-14,
+      "allclose": true
+    },
+    {
+      "size": 1600,
+      "mode": "kernel",
+      "impl": "C Numba serial",
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "size": 1600,
+      "mode": "kernel",
+      "impl": "C Numba prange",
+      "max_abs_diff": 3.197442310920451e-14,
+      "allclose": true
+    },
+    {
+      "size": 1600,
+      "mode": "kernel",
+      "impl": "D Processes",
+      "max_abs_diff": 3.019806626980426e-14,
+      "allclose": true
+    },
+    {
+      "size": 1600,
+      "mode": "e2e",
+      "impl": "A Python",
+      "max_abs_diff_e2e_different_rng": 0.0
+    },
+    {
+      "size": 1600,
+      "mode": "e2e",
+      "impl": "B NumPy",
+      "max_abs_diff_e2e_different_rng": 0.54875
+    },
+    {
+      "size": 1600,
+      "mode": "e2e",
+      "impl": "C Numba serial",
+      "max_abs_diff_e2e_different_rng": 0.54875
+    },
+    {
+      "size": 1600,
+      "mode": "e2e",
+      "impl": "C Numba prange",
+      "max_abs_diff_e2e_different_rng": 0.54875
+    },
+    {
+      "size": 1600,
+      "mode": "e2e",
+      "impl": "D Processes",
+      "max_abs_diff_e2e_different_rng": 0.6875
+    },
+    {
+      "size": 3200,
+      "mode": "kernel",
+      "impl": "A Python",
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "size": 3200,
+      "mode": "kernel",
+      "impl": "B NumPy",
+      "max_abs_diff": 2.1649348980190553e-14,
+      "allclose": true
+    },
+    {
+      "size": 3200,
+      "mode": "kernel",
+      "impl": "B NumPy lowmem",
+      "max_abs_diff": 2.1649348980190553e-14,
+      "allclose": true
+    },
+    {
+      "size": 3200,
+      "mode": "kernel",
+      "impl": "C Numba serial",
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "size": 3200,
+      "mode": "kernel",
+      "impl": "C Numba prange",
+      "max_abs_diff": 1.965094753586527e-14,
+      "allclose": true
+    },
+    {
+      "size": 3200,
+      "mode": "kernel",
+      "impl": "D Processes",
+      "max_abs_diff": 2.1538326677728037e-14,
+      "allclose": true
+    },
+    {
+      "size": 3200,
+      "mode": "e2e",
+      "impl": "A Python",
+      "max_abs_diff_e2e_different_rng": 0.0
+    },
+    {
+      "size": 3200,
+      "mode": "e2e",
+      "impl": "B NumPy",
+      "max_abs_diff_e2e_different_rng": 0.440625
+    },
+    {
+      "size": 3200,
+      "mode": "e2e",
+      "impl": "C Numba serial",
+      "max_abs_diff_e2e_different_rng": 0.440625
+    },
+    {
+      "size": 3200,
+      "mode": "e2e",
+      "impl": "C Numba prange",
+      "max_abs_diff_e2e_different_rng": 0.440625
+    },
+    {
+      "size": 3200,
+      "mode": "e2e",
+      "impl": "D Processes",
+      "max_abs_diff_e2e_different_rng": 0.259375
+    },
+    {
+      "size": 6400,
+      "mode": "kernel",
+      "impl": "A Python",
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "size": 6400,
+      "mode": "kernel",
+      "impl": "B NumPy",
+      "max_abs_diff": 1.0658141036401503e-13,
+      "allclose": true
+    },
+    {
+      "size": 6400,
+      "mode": "kernel",
+      "impl": "B NumPy lowmem",
+      "max_abs_diff": 1.0658141036401503e-13,
+      "allclose": true
+    },
+    {
+      "size": 6400,
+      "mode": "kernel",
+      "impl": "C Numba serial",
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "size": 6400,
+      "mode": "kernel",
+      "impl": "C Numba prange",
+      "max_abs_diff": 1.1368683772161603e-13,
+      "allclose": true
+    },
+    {
+      "size": 6400,
+      "mode": "kernel",
+      "impl": "D Processes",
+      "max_abs_diff": 1.0658141036401503e-13,
+      "allclose": true
+    },
+    {
+      "size": 6400,
+      "mode": "e2e",
+      "impl": "A Python",
+      "max_abs_diff_e2e_different_rng": 0.0
+    },
+    {
+      "size": 6400,
+      "mode": "e2e",
+      "impl": "B NumPy",
+      "max_abs_diff_e2e_different_rng": 0.1496875
+    },
+    {
+      "size": 6400,
+      "mode": "e2e",
+      "impl": "C Numba serial",
+      "max_abs_diff_e2e_different_rng": 0.1496875
+    },
+    {
+      "size": 6400,
+      "mode": "e2e",
+      "impl": "C Numba prange",
+      "max_abs_diff_e2e_different_rng": 0.1496875
+    },
+    {
+      "size": 6400,
+      "mode": "e2e",
+      "impl": "D Processes",
+      "max_abs_diff_e2e_different_rng": 0.2370108435722713
+    }
+  ],
+  "loglog_slope": {
+    "A Python": 0.995743956337279,
+    "B NumPy": 1.0268750261286443,
+    "B NumPy lowmem": 1.057398278775533,
+    "C Numba serial": 0.9862031774021153,
+    "C Numba prange": 1.2112734582858289,
+    "D Processes": 1.0276188482210016
+  }
+}

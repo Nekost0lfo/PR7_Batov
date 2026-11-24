@@ -1,0 +1,8 @@
+metric,value_s
+cold_serial_s,0.537216
+cold_parallel_s,1.522641
+cold_both_s,2.059857
+warm_serial_median_s,0.001154
+warm_parallel_median_s,0.000224
+cold_over_warm_serial,465.404228
+cold_over_warm_parallel,6791.441123

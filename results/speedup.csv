@@ -1,0 +1,67 @@
+size,mode,implementation,speedup_vs_python
+1,kernel,A Python,1.000
+1,kernel,B NumPy,4.114
+1,kernel,B NumPy lowmem,5.357
+1,kernel,C Numba serial,44.318
+1,kernel,C Numba prange,10.484
+1,kernel,D Processes,0.056
+1,e2e,A Python,1.000
+1,e2e,B NumPy,6.721
+1,e2e,C Numba serial,13.639
+1,e2e,C Numba prange,5.647
+1,e2e,D Processes,0.001
+400,kernel,A Python,1.000
+400,kernel,B NumPy,16.742
+400,kernel,B NumPy lowmem,19.288
+400,kernel,C Numba serial,65.112
+400,kernel,C Numba prange,422.148
+400,kernel,D Processes,0.810
+400,e2e,A Python,1.000
+400,e2e,B NumPy,25.786
+400,e2e,C Numba serial,41.678
+400,e2e,C Numba prange,45.435
+400,e2e,D Processes,0.255
+800,kernel,A Python,1.000
+800,kernel,B NumPy,15.913
+800,kernel,B NumPy lowmem,19.134
+800,kernel,C Numba serial,61.131
+800,kernel,C Numba prange,288.780
+800,kernel,D Processes,0.737
+800,e2e,A Python,1.000
+800,e2e,B NumPy,26.425
+800,e2e,C Numba serial,42.855
+800,e2e,C Numba prange,50.541
+800,e2e,D Processes,0.505
+1600,kernel,A Python,1.000
+1600,kernel,B NumPy,15.972
+1600,kernel,B NumPy lowmem,17.991
+1600,kernel,C Numba serial,65.894
+1600,kernel,C Numba prange,214.001
+1600,kernel,D Processes,0.745
+1600,e2e,A Python,1.000
+1600,e2e,B NumPy,26.094
+1600,e2e,C Numba serial,42.558
+1600,e2e,C Numba prange,48.273
+1600,e2e,D Processes,1.008
+3200,kernel,A Python,1.000
+3200,kernel,B NumPy,15.962
+3200,kernel,B NumPy lowmem,16.527
+3200,kernel,C Numba serial,65.509
+3200,kernel,C Numba prange,226.641
+3200,kernel,D Processes,0.749
+3200,e2e,A Python,1.000
+3200,e2e,B NumPy,24.402
+3200,e2e,C Numba serial,45.047
+3200,e2e,C Numba prange,53.617
+3200,e2e,D Processes,2.096
+6400,kernel,A Python,1.000
+6400,kernel,B NumPy,15.358
+6400,kernel,B NumPy lowmem,16.259
+6400,kernel,C Numba serial,66.835
+6400,kernel,C Numba prange,231.648
+6400,kernel,D Processes,0.741
+6400,e2e,A Python,1.000
+6400,e2e,B NumPy,23.742
+6400,e2e,C Numba serial,42.439
+6400,e2e,C Numba prange,49.695
+6400,e2e,D Processes,4.194
